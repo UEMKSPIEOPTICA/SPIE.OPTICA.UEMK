@@ -1,0 +1,39 @@
+.team0{
+  background: var(--color-bg);
+  /* margin-top: 4rem; */
+}
+.team_txt h2 {
+  margin-top: 3rem;
+}
+.team1{
+  /* background: var(--color-bg); */
+  box-shadow: none;
+}
+.team1 h2{
+  margin-top: -2rem;
+}
+.team2{
+  background: var(--color-bg);
+  margin-top: -2rem;
+}
+.team2 h2{
+  margin-top: -2rem;
+}
+.team4{
+  background: var(--color-bg);
+}
+.container_team1{
+  margin-top: -1.rem;
+}
+.container_team2{
+  margin-top: -1.rem;
+}
+.team .text{
+  font-size: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: -1.6rem;
+  margin-bottom: 2.6rem;
+}
