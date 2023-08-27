@@ -1,0 +1,34 @@
+//Style Script
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gruppo&family=Lora:wght@500&family=Poppins:wght@400;600&family=Roboto&family=Ubuntu&family=Varela+Round&display=swap" rel="stylesheet">
+
+
+//fonts 
+font-family: 'Gruppo', sans-serif;
+font-family: 'Lora', serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Ubuntu', sans-serif;
+font-family: 'Varela Round', sans-serif;
+
+
+
+//Unsplash random images
+https://source.unsplash.com/400x480/?nature,python
+
+
+
+<!--BootStarp Css CDn-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!---Boot starpm Js CDN-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+
+
+**Some Special Gredient Color:
+1.linear-gradient(135deg,#c3a3f1,#6414e9)
+2.linear-gradient(30deg,#cff675,#8edb98)
+3.linear-gradient(180deg,#ffdf77,#ffa64d)
+4.linear-gradient(30deg,#1cb2fd,#0aff81)
+5.linear-gradient(90deg,#fd552b,#fb44cd)
