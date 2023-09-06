@@ -1004,6 +1004,21 @@ footer ul li a:hover {
         margin-top: 8px;
     }
 }
+/* Media Query for screens with a maximum width of 800px */
+@media (max-width: 800px) {
+    /* .yearText and .yearHeading */
+    .btns {
+        top: 156%;
+        left: 41%;
+        height: 40px;
+        font-size: 18px;
+        line-height: 25px;
+    }
+    header {
+        height: 100vh;
+        margin-bottom: 4rem;
+    }
+}
 
 
 /* Media Query for screens with a maximum width of 600px */
