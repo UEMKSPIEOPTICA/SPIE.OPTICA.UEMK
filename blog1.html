@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPIE.OPTICA.UEMK</title>
+    <!------Fav Icons CDN-------->
+    <link rel="shortcut icon" href="LOGOS/UEM Balck.png" type="image/svg+xml+png">
+
+    <!-----Main Style Sheet---->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/blog1.css">
+    <!----cdn FOR G-fonts style-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!----ICONSCOUT CDN----->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <!-------- Swiper Js CDN ------->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <style>
+        body {
+            background-image: url("images/bg-texture.png");
+        }
+        #preloader {
+            transition-duration: 0.5s;
+            z-index: 99999;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #preloader {
+
+            background: rgb(0, 0, 0);
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            margin-top: 0px;
+            top: 0px;
+        }
+
+        #loading-center {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #loading-center-absolute {
+            width: 100%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .mainload {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .mainload .loadtext {
+            color: white;
+            margin: 0;
+            padding-left: 5%;
+            width: 100%;
+            text-align: center;
+            font-size: clamp(3rem, 3.5vw, 9rem);
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            letter-spacing: 40px;
+            transition-duration: 0.7s;
+            transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            animation: fadeload 1s 1;
+            transform: scale(1);
+            filter: blur(0px);
+        }
+
+        .mainload img {
+            width: 490px;
+            height: 250px;
+        }
+
+        .preimage {
+            opacity: 1;
+            filter: blur(1px);
+            transition-duration: 0.7s;
+            transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            animation: revealImage 1s 1;
+        }
+
+        .yearText {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0%;
+        }
+
+        .yearHeading {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            height: 100%;
+            top: -80px;
+            font-family: 'Poppins', sans-serif !important;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 350px;
+            line-height: 500px;
+            text-align: center;
+            letter-spacing: 0.08em;
+            color: #d2b9fbc2;
+            opacity: 0.35;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 2px;
+        }
+
+        .textHeading {
+            position: absolute;
+            left: 18.13%;
+            right: 18.13%;
+            top: 25.68%;
+            font-family: 'Montserrat', sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 60px;
+            line-height: 104px;
+            text-align: center;
+            letter-spacing: 0.07em;
+            color: #ffffff;
+            text-shadow: 0px 0px 15px #150b25;
+        }
+
+        .subHeading {
+            position: absolute;
+            left: 25.07%;
+            right: 25.01%;
+            top: 67.8%;
+            font-family: 'Poppins', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 27px;
+            line-height: 43px;
+            text-align: center;
+            letter-spacing: 0.08em;
+            color: #ffffff;
+            text-shadow: 0px 0px 15px #150b25;
+        }
+
+        .btns {
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 90%;
+            left: 43%;
+            background: #d2b9fb;
+            padding: 7px 20px;
+            border-radius: 6px;
+            border: none;
+            font-family: "Questrial", sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 29px;
+            text-align: center;
+            letter-spacing: 0.08em;
+            color: #150b25;
+        }
+
+        .btns:hover {
+            background: transparent;
+            border: 2px solid #d2b9fb;
+            color: #d2b9fb;
+            transition: ease-in-out 0.3s;
+        }
+
+        @keyframes fadeload {
+            0% {
+                opacity: 0;
+                transform: scale(5);
+                filter: blur(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0px);
+            }
+        }
+
+        @keyframes revealImage {
+            0% {
+                transform: scale(0.2);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Media Query for screens with a maximum width of 600px */
+        @media (max-width: 800px) {
+            .mainload {
+                flex-direction: column;
+                justify-content: space-around;
+            }
+
+            .mainload .loadtext {
+                font-size: clamp(3rem, 2.5vw, 4rem);
+                letter-spacing: 20px;
+                padding-left: 3.5%;
+            }
+
+            .mainload img {
+                width: 200px;
+                height: 150px;
+            }
+
+            .team_member_image img {
+                height: 220px;
+            }
+        }
+
+        /* Media Query for screens with a maximum width of 600px */
+        @media (max-width: 600px) {
+
+
+            /* .yearText and .yearHeading */
+            .yearText {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .yearHeading {
+                display: flex;
+                justify-content: center;
+                position: relative;
+                height: 100%;
+                top: -130px;
+                font-family: "Questrial", sans-serif;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 120px;
+                line-height: 500px;
+                text-align: center;
+                letter-spacing: 0.08em;
+                color: #d2b9fb;
+                opacity: 0.35;
+                -webkit-text-fill-color: transparent;
+                -webkit-text-stroke: 2px;
+            }
+
+            /* .textHeading */
+            .textHeading {
+                position: absolute;
+                left: 11%;
+                top: 20.68%;
+                width: 350px;
+                /* Adjust the width to fit the content */
+                font-family: "Questrial", sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 22px;
+                line-height: 30px;
+                letter-spacing: 0.07em;
+                color: #ffffff;
+                text-shadow: 0px 0px 15px #150b25;
+            }
+
+            /* .subHeading */
+            .subHeading {
+                position: absolute;
+                top: 40.8%;
+                left: 45px;
+                width: 350px;
+                /* Adjust the width to fit the content */
+                font-family: "Questrial", sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 20px;
+                text-align: center;
+                letter-spacing: 0.08em;
+                color: #ffffff;
+                text-shadow: 0px 0px 15px #150b25;
+            }
+
+            /* .btns */
+            .btns {
+                top: 56%;
+                left: 31%;
+                height: 50px;
+                background: #d2b9fb;
+                padding: 7px 30px;
+                border-radius: 6px;
+            }
+
+            /* Other adjustments for .mainload */
+            .mainload {
+                flex-direction: column;
+                justify-content: space-around;
+            }
+
+            .mainload .loadtext {
+                font-size: clamp(1.5rem, 2.5vw, 4rem);
+                letter-spacing: 10px;
+                padding-left: 4%;
+            }
+
+            .mainload img {
+                width: 140px;
+                height: 110px;
+            }
+
+            .mainload .red {
+                padding-left: 4.7%;
+                margin-top: 14px;
+            }
+
+            .team_member_image img {
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!------- Pre-Loader For Webpage ------>
+    <div id="preloader" ">
+        <div id=" loading-center">
+        <div id="loading-center-absolute">
+            <div class="mainload">
+                <h7 class="loadtext ">OPTICA</h7>
+                <img src="LOGOS/UEM full.png" class="preimage" style="opacity: 1; filter: blur(0px);">
+                <h7 class="loadtext red">SPIE</h7>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <nav>
+        <div class="container nav_container">
+            <a href="index.html">
+                <h1 class="logo">SPIE OPTICA <small>UEMK</small></h1>
+            </a>
+            <ul class="nav_menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="blog.html" class="active-link">Our Blogs</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+            </ul>
+            <button id="open-menu"><i class="uil uil-bars"></i></button>
+            <button id="close-menu"><i class="uil uil-multiply"></i></button>
+            <!-- <button id="light-mode"><i class="uil uil-brightness"></i></button> -->
+        </div>
+    </nav>
+
+
+
+    <section class="about_achievements margin">
+        <div class="container about_achievements_container">
+            <div class="about_achievements_right">
+                <h1>Non-Newtonian Fluid: The Flexi Flow Breaker</h1>
+                <p>
+                    <strong>In</strong> this world full of surprises and wonders there exists a class of fluids that
+                    tends to deny our
+                    run-of-the-mill understanding regarding the behavior of fluids. These mysterious substances, the
+                    master of their own will, questions the existence of Sir Isaac Newton's Law of Viscosity.
+
+                </p>
+                <p>
+                    Imagine a fluid that becomes as solid as concrete when one applies great force, only to drift back
+                    into liquid when force is removed. Imagine you are running upon a liquid without sinking defying the
+                    laws of Gravity. Well welcome to the world of Non-Newtonian Fluid and get ready to experience the
+                    zest as we dive into an unrealistic realism where science and magic intersect.
+                </p>
+            </div>
+            <div class="about_achievements_left">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="img_box">
+                                <img src="Blog_image/blog1_1.jpg" alt="img1">
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <section class="about_achievements">
+        <div class="container about_achievements_container">
+
+            <div class="about_achievements_left">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="img_box">
+                                <img src="Blog_image/blog1_2.jpg" alt="img1">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="about_achievements_right">
+
+                <p>
+                    The definition states that the viscosity of these fluids depends upon the shearing stress applied
+                    i.e. the greater the force applied more viscous the fluid will become. Mathematically represented
+                    as: τ=μ du/dy
+                </p>
+
+                <p>
+                    Where,
+                    τ=sheer stress, μ=dynamic viscosity, du/dy=Velocity gradient
+                </p>
+
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <section class="about_achievements margin_minus">
+        <div class="container about_achievements_container">
+
+
+            <div class="about_achievements_right">
+
+                <h1>The Flexi Flow Breaker</h1>
+                <p>
+                    <strong>In</strong> our ever-evolving world, roads, cars, and traffic have become a major part of
+                    human lives. In this ever-growing scenery of traffic management, engineers have come up with an
+                    innovative solution that is nothing less than magic on roads. Imagine this: a road that understands
+                    your speed, as if it has its own mind. Hence, you are once again welcome to the world of
+                    Non-Newtonian fluids, it is where science and magic collide to produce the new generation speed
+                    breakers.
+                </p>
+
+                <p>Imagine driving down a quiet and peaceful street, and you are approaching a pedestrian crosswalk. You
+                    slow your vehicle down, and as soon as your vehicle is climbing up on the speedbump, it suddenly
+                    alters its state, from solid to liquid. Providing you with a very smooth driving experience and
+                    reducing the jerking effect of traditional speed breakers.
+                </p>
+
+            </div>
+
+            <div class="about_achievements_left">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="img_box">
+                                <img src="Blog_image/blog1_3.jpg" alt="img1">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <section class="container margin_minus">
+        <p> <strong>The</strong> science sneaking behind magic: These modern-day speed breakers are thronged with
+            non-Newtonian fluids (such substances that change their state from liquid to solid when pressure or force is
+            applied). As your vehicle's weight applies pressure, these molecules. transition their state to solid,
+            resulting in an effective temporary obstacle. But the instant your wheels roll down, the defaults are
+            restored, allowing a jerk-free comfortable ride. These breakers not only reduce the speed of your vehicle
+            but also reduce wear and tear on the tires of your vehicle. It acts as a personal traffic adviser advising
+            you to slow down while ensuring your safe, happy, smooth, peaceful journey obstacle-free. </p>
+            <br>
+        <p> <strong>So,</strong> next time you come across one of these flexi flow breakers, remember that there lies an
+            alluring mixture of science and magic and innovation, converting a drive into a magical experience, and in
+            that, non-Newtonian fluids plays a very big role. </p>
+
+    </section>
+
+
+
+    <footer>
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo">
+                    <h1 class="logo">SPIE OPTICA STUDENT CHAPTER UEMK</h1>
+                </a>
+                <p>Exploring the Frontier of Light Wave Matter</p>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="blog.html">Our Blogs</a></li>
+                    <li><a href="contact.html">Contacts</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_4">
+                <h4>Contact us</h4>
+                <div>
+                    <p>+91 8271 715 168</p>
+                    <p>uemkspieoptica@gmail.com</p>
+                </div>
+                <ul class="footer_social">
+                    <li> <a href="https://www.facebook.com/spie.uemk" target="_blank"><i
+                                class="uil uil-facebook"></i></a></li>
+                    <li><a href="https://www.instagram.com/uemk_spieoptica/" target="_blank"><i
+                                class="uil uil-instagram"></i></a></li>
+                    <li><a href="https://twitter.com/uemk_spieoptica?s=20" target="_blank"><i
+                                class="uil uil-twitter"></i></a></li>
+                    <li> <a href="https://www.linkedin.com/company/spie-osa-uem-kolkata-student-chapter/"
+                            target="_blank"><i class="uil uil-linkedin"></i></a></li>
+                    <li> <a href="https://www.youtube.com/@spieoptica" target="_blank"><i
+                                class="uil uil-youtube"></i></a></li>
+                    <li> <a href="mailto:uemkspieoptica@gmail.com
+                        " target="_blank"><i class="uil uil-envelope"></i></i></a></li>
+                    <li> <a href="https://wa.me/+918271715168" target="_blank"><i class="uil uil-whatsapp"></i></a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <h4 class="text-uppercase fw-bold mb-4">
+                    Get Our Direction
+                </h4>
+
+                <div class="d-none d-md-block">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.5076611806967!2d88.48752352461518!3d22.560108633429376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a020b0b8fcd8c35%3A0xdb157351acce5f55!2sUEM%20Kolkata%20SPIE%20Students%20Chapter!5e0!3m2!1sen!2sin!4v1690629189160!5m2!1sen!2sin"
+                        width="300" height="200" style="border: 2px solid; border-radius: 10px;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <div class="d-md-none">
+                </div>
+            </div>
+
+        </div>
+        <div class="footer_copyright">
+            <a> &copy; 2023 Copyright&nbsp;SPIE OPTICA UEMK Student Chapter</a>
+        </div>
+    </footer>
+
+    <!-------- Link JS File main --------->
+    <script src="js/script.js"></script>
+    <!------- Swiper.Js js CDN directory ------>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 5,
+            loop: true,
+            speed: 600,
+            effect: "fade",
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                dynamicBullets: true,
+            },
+            mousewheel: true,
+            keyboard: true,
+            autoplay: {
+                delay: 10000,
+                disableOnInteraction: false,
+            },
+        });
+    </script>
+
+
+</body>
+
+</html>

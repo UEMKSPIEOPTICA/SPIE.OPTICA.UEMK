@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPIE.OPTICA.UEMK</title>
+    <!------Fav Icons CDN-------->
+    <link rel="shortcut icon" href="LOGOS/UEM Balck.png" type="image/svg+xml+png">
+
+    <!-----Main Style Sheet---->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/blog1.css">
+    <!----cdn FOR G-fonts style-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!----ICONSCOUT CDN----->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <!-------- Swiper Js CDN ------->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <style>
+        body {
+            background-image: url("images/bg-texture.png");
+        }
+
+        #preloader {
+            transition-duration: 0.5s;
+            z-index: 99999;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #preloader {
+
+            background: rgb(0, 0, 0);
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            margin-top: 0px;
+            top: 0px;
+        }
+
+        #loading-center {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #loading-center-absolute {
+            width: 100%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .mainload {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .mainload .loadtext {
+            color: white;
+            margin: 0;
+            padding-left: 5%;
+            width: 100%;
+            text-align: center;
+            font-size: clamp(3rem, 3.5vw, 9rem);
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            letter-spacing: 40px;
+            transition-duration: 0.7s;
+            transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            animation: fadeload 1s 1;
+            transform: scale(1);
+            filter: blur(0px);
+        }
+
+        .mainload img {
+            width: 490px;
+            height: 250px;
+        }
+
+        .preimage {
+            opacity: 1;
+            filter: blur(1px);
+            transition-duration: 0.7s;
+            transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            animation: revealImage 1s 1;
+        }
+
+        .yearText {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0%;
+        }
+
+        .yearHeading {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            height: 100%;
+            top: -80px;
+            font-family: 'Poppins', sans-serif !important;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 350px;
+            line-height: 500px;
+            text-align: center;
+            letter-spacing: 0.08em;
+            color: #d2b9fbc2;
+            opacity: 0.35;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 2px;
+        }
+
+        .textHeading {
+            position: absolute;
+            left: 18.13%;
+            right: 18.13%;
+            top: 25.68%;
+            font-family: 'Montserrat', sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 60px;
+            line-height: 104px;
+            text-align: center;
+            letter-spacing: 0.07em;
+            color: #ffffff;
+            text-shadow: 0px 0px 15px #150b25;
+        }
+
+        .subHeading {
+            position: absolute;
+            left: 25.07%;
+            right: 25.01%;
+            top: 67.8%;
+            font-family: 'Poppins', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 27px;
+            line-height: 43px;
+            text-align: center;
+            letter-spacing: 0.08em;
+            color: #ffffff;
+            text-shadow: 0px 0px 15px #150b25;
+        }
+
+        .btns {
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 90%;
+            left: 43%;
+            background: #d2b9fb;
+            padding: 7px 20px;
+            border-radius: 6px;
+            border: none;
+            font-family: "Questrial", sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 29px;
+            text-align: center;
+            letter-spacing: 0.08em;
+            color: #150b25;
+        }
+
+        .btns:hover {
+            background: transparent;
+            border: 2px solid #d2b9fb;
+            color: #d2b9fb;
+            transition: ease-in-out 0.3s;
+        }
+
+        @keyframes fadeload {
+            0% {
+                opacity: 0;
+                transform: scale(5);
+                filter: blur(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0px);
+            }
+        }
+
+        @keyframes revealImage {
+            0% {
+                transform: scale(0.2);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Media Query for screens with a maximum width of 600px */
+        @media (max-width: 800px) {
+            .mainload {
+                flex-direction: column;
+                justify-content: space-around;
+            }
+
+            .mainload .loadtext {
+                font-size: clamp(3rem, 2.5vw, 4rem);
+                letter-spacing: 20px;
+                padding-left: 3.5%;
+            }
+
+            .mainload img {
+                width: 200px;
+                height: 150px;
+            }
+
+            .team_member_image img {
+                height: 220px;
+            }
+        }
+
+        /* Media Query for screens with a maximum width of 600px */
+        @media (max-width: 600px) {
+
+
+            /* .yearText and .yearHeading */
+            .yearText {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .yearHeading {
+                display: flex;
+                justify-content: center;
+                position: relative;
+                height: 100%;
+                top: -130px;
+                font-family: "Questrial", sans-serif;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 120px;
+                line-height: 500px;
+                text-align: center;
+                letter-spacing: 0.08em;
+                color: #d2b9fb;
+                opacity: 0.35;
+                -webkit-text-fill-color: transparent;
+                -webkit-text-stroke: 2px;
+            }
+
+            /* .textHeading */
+            .textHeading {
+                position: absolute;
+                left: 11%;
+                top: 20.68%;
+                width: 350px;
+                /* Adjust the width to fit the content */
+                font-family: "Questrial", sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 22px;
+                line-height: 30px;
+                letter-spacing: 0.07em;
+                color: #ffffff;
+                text-shadow: 0px 0px 15px #150b25;
+            }
+
+            /* .subHeading */
+            .subHeading {
+                position: absolute;
+                top: 40.8%;
+                left: 45px;
+                width: 350px;
+                /* Adjust the width to fit the content */
+                font-family: "Questrial", sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 20px;
+                text-align: center;
+                letter-spacing: 0.08em;
+                color: #ffffff;
+                text-shadow: 0px 0px 15px #150b25;
+            }
+
+            /* .btns */
+            .btns {
+                top: 56%;
+                left: 31%;
+                height: 50px;
+                background: #d2b9fb;
+                padding: 7px 30px;
+                border-radius: 6px;
+            }
+
+            /* Other adjustments for .mainload */
+            .mainload {
+                flex-direction: column;
+                justify-content: space-around;
+            }
+
+            .mainload .loadtext {
+                font-size: clamp(1.5rem, 2.5vw, 4rem);
+                letter-spacing: 10px;
+                padding-left: 4%;
+            }
+
+            .mainload img {
+                width: 140px;
+                height: 110px;
+            }
+
+            .mainload .red {
+                padding-left: 4.7%;
+                margin-top: 14px;
+            }
+
+            .team_member_image img {
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!------- Pre-Loader For Webpage ------>
+    <div id="preloader" ">
+        <div id=" loading-center">
+        <div id="loading-center-absolute">
+            <div class="mainload">
+                <h7 class="loadtext ">OPTICA</h7>
+                <img src="LOGOS/UEM full.png" class="preimage" style="opacity: 1; filter: blur(0px);">
+                <h7 class="loadtext red">SPIE</h7>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <nav>
+        <div class="container nav_container">
+            <a href="index.html">
+                <h1 class="logo">SPIE OPTICA <small>UEMK</small></h1>
+            </a>
+            <ul class="nav_menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="blog.html" class="active-link">Our Blogs</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+            </ul>
+            <button id="open-menu"><i class="uil uil-bars"></i></button>
+            <button id="close-menu"><i class="uil uil-multiply"></i></button>
+            <!-- <button id="light-mode"><i class="uil uil-brightness"></i></button> -->
+        </div>
+    </nav>
+
+
+
+    <section class="about_achievements margin">
+        <div class="container about_achievements_container">
+            <div class="about_achievements_right">
+                <h1>GIG ECONOMY & FREELANCING-WHAT THE FUTURE HOLDS?</h1>
+                <p>
+                    <strong>I am</strong> sure you all have heard about gigs but have you heard about Gig Economy?
+                </p>
+
+                <p>
+                    As you probably know The term ‘gig’ originates from the world of performing arts, where comedians,
+                    musicians, and performers are paid for individual performances, called ‘gigs.’
+                </p>
+                <p>
+                    The gig economy is a free market in which individuals earn income from on-demand, short-term
+                    assignments, tasks, or jobs.
+                </p>
+            </div>
+            <div class="about_achievements_left">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="img_box">
+                                <img src="Blog_image/blog2_4.jpg" alt="img1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+    </section>
+
+
+    <section class="about_achievements">
+        <div class="container about_achievements_container">
+
+            <div class="about_achievements_left">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="img_box">
+                                <img src="Blog_image/blog2_2.png" alt="img1">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="about_achievements_right">
+                <h1>
+                    EVOLUTION & THE RISE OF GIG ECONOMY
+                </h1>
+
+                <p>
+                    It's been said that task-based labour came into being around the time of the 2008 global financial
+                    crisis, when unemployment rates were at an all-time high. Many companies had to let go of their
+                    permanent employees, and becoming independent was one of the only ways to make ends meet. Nowadays,
+                    more and more people are turning to part-time work, freelancing, or consulting as a means to find a
+                    better work-life balance..
+                </p>
+                <p>
+                    Thanks to modern technologies, we now have the freedom to work in new and innovative ways without
+                    other place leaving their friends and families behind. Clearly the rise of gig economy is
+                    inevitable.According to Statista it’s projected that 85.6 million people will be freelancing in the
+                    United States by 2027. As a result, freelancers will make up a whopping 50.9 percent –over half– of
+                    the U.S. workforce. Though in India the concept of gig economy is still at infant stage already
+                    seven million(approximately) workers in India have switched to working as independent contractors or
+                    freelancers contributing to the gig economy.
+                </p>
+
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <section class="container margin_minus ">
+        <h1>FREELANCING OPPORTUNITIES</h1>
+        <br><br>
+        <p>
+            <strong>Though</strong> there are some drawbacks in gig economy like modest pay, no permanent
+            employee benefits like sick leave, health insurance etc., inconsistent income, taxes and expanses &
+            potential stress and burnout , the pros as given below, easily outweighs the cons.
+        </p>
+        <br>
+        <p>
+            1. <strong>Low barrier</strong> to entry-It’s very easy to join the gig economy. There are many gig
+            economy jobs that
+            are simple and don’t require qualifications or previous experience.
+            <br> <br>
+            2. <strong> Flexibility-Gig</strong> economy workers have the opportunity to choose when they work
+            and the clients
+            they take on (or don’t take on). As a result, many gig economy workers choose to work from home.
+            <br> <br>
+            3. <strong> Variety-Gig</strong> economy workers often perform many jobs for different clients,
+            which can help to
+            stave off monotony and keep work interesting. <br> <br>
+            4. <strong>Independenc –gig</strong> economy workers are self-employed. In other word , a gig worker
+            is his/her own
+            boss. <br> <br>
+            5. <strong>Opportunity</strong> to try new jobs-Many people have small business idea they’d like to
+            try, but it
+            doesn’t make sense to quit their main source of income to give it a go. Working in the gig economy
+            is a great way to try different jobs on the side with minimal risk.
+
+        </p>
+
+    </section>
+
+    <section class="about_achievements">
+        <div class="container about_achievements_container">
+
+
+            <div class="about_achievements_right">
+                <h1>
+                    PLATFORMS TO LOOK FOR GIG WORKERS
+                </h1>
+
+                <p>
+                    Freelancing or gig economy has been proved extra beneficial for college students. Since many college
+                    students have to relocate to study, they often face money shortage. Gig economy for them is like
+                    killing two birds with one stone. With it they can earn money and also gain work experience. There
+                    are many platforms that empower college students to monetize their skills and talents. Some of them
+                    are:
+                </p>
+                <p>
+                    • Freelancing platforms-Websites such as Upwork , Fiverr, and Freelancer connect freelancers with
+                    clients who need their skills. <br>
+                    • Online tutoring- Websites such as VIPKid, Chegg, and TutorMe connect teachers and tutors with
+                    students who need their help <br>
+                    • Online marketplaces-Websites such as Amazon, Etsy, and Shopify allow people to sell their own
+                    products or promote other people's products <br>
+                    • Blogging and YouTube: if you have an expertise, you can start a blog or a YouTube channel and earn
+                    through ads, sponsorships and affiliate marketing.
+
+                </p>
+
+            </div>
+            <div class="about_achievements_left">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="img_box">
+                                <img src="Blog_image/blog2_1.jpg" alt="img1">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container margin_minus ">
+        <p>
+            Uber, lyft, instacart, amazon flex, postmates, WAG, taskRabbit, handy etc. are some other apps through which
+            you can find in-person works.
+        </p>
+        <br>
+        <p>
+            <strong>SO WHAT ARE WE WAITING FOR? IT’S TIME TO STEP INTO THE FASCINATING WORLD OF GIG ECONOMY!! </strong>
+        </p>
+
+    </section>
+
+
+    <footer>
+        <div class="container footer_container">
+            <div class="footer_1">
+                <a href="index.html" class="footer_logo">
+                    <h1 class="logo">SPIE OPTICA STUDENT CHAPTER UEMK</h1>
+                </a>
+                <p>Exploring the Frontier of Light Wave Matter</p>
+            </div>
+
+            <div class="footer_2">
+                <h4>Permalinks</h4>
+                <ul class="permalinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="blog.html">Our Blogs</a></li>
+                    <li><a href="contact.html">Contacts</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_4">
+                <h4>Contact us</h4>
+                <div>
+                    <p>+91 8271 715 168</p>
+                    <p>uemkspieoptica@gmail.com</p>
+                </div>
+                <ul class="footer_social">
+                    <li> <a href="https://www.facebook.com/spie.uemk" target="_blank"><i
+                                class="uil uil-facebook"></i></a></li>
+                    <li><a href="https://www.instagram.com/uemk_spieoptica/" target="_blank"><i
+                                class="uil uil-instagram"></i></a></li>
+                    <li><a href="https://twitter.com/uemk_spieoptica?s=20" target="_blank"><i
+                                class="uil uil-twitter"></i></a></li>
+                    <li> <a href="https://www.linkedin.com/company/spie-osa-uem-kolkata-student-chapter/"
+                            target="_blank"><i class="uil uil-linkedin"></i></a></li>
+                    <li> <a href="https://www.youtube.com/@spieoptica" target="_blank"><i
+                                class="uil uil-youtube"></i></a></li>
+                    <li> <a href="mailto:uemkspieoptica@gmail.com
+                        " target="_blank"><i class="uil uil-envelope"></i></i></a></li>
+                    <li> <a href="https://wa.me/+918271715168" target="_blank"><i class="uil uil-whatsapp"></i></a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <h4 class="text-uppercase fw-bold mb-4">
+                    Get Our Direction
+                </h4>
+
+                <div class="d-none d-md-block">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.5076611806967!2d88.48752352461518!3d22.560108633429376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a020b0b8fcd8c35%3A0xdb157351acce5f55!2sUEM%20Kolkata%20SPIE%20Students%20Chapter!5e0!3m2!1sen!2sin!4v1690629189160!5m2!1sen!2sin"
+                        width="300" height="200" style="border: 2px solid; border-radius: 10px;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <div class="d-md-none">
+                </div>
+            </div>
+
+        </div>
+        <div class="footer_copyright">
+            <a> &copy; 2023 Copyright&nbsp;SPIE OPTICA UEMK Student Chapter</a>
+        </div>
+    </footer>
+
+    <!-------- Link JS File main --------->
+    <script src="js/script.js"></script>
+    <!------- Swiper.Js js CDN directory ------>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 5,
+            loop: true,
+            speed: 600,
+            effect: "fade",
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                dynamicBullets: true,
+            },
+            mousewheel: true,
+            keyboard: true,
+            autoplay: {
+                delay: 10000,
+                disableOnInteraction: false,
+            },
+        });
+    </script>
+
+
+</body>
+
+</html>
