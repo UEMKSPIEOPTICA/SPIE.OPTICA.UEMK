@@ -948,6 +948,10 @@ footer ul li a:hover {
 
 /* Media Query for screens with a maximum width of 800px */
 /* Media Query for screens with a maximum width of 800px */
+@media (max-width: 1440px) {
+
+}
+
 @media (max-width: 1024px) {
     /* .yearText and .yearHeading */
     .yearHeading {
@@ -1170,3 +1174,14 @@ footer ul li a:hover {
         height: 200px;
     }
 }
+@media (max-width: 1040px) {
+    .map_size iframe {
+        border: 2px solid;
+        border-radius: 10px;
+        width: 149px;
+        height: 147px;
+    }
+}
+
+
+
